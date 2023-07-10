@@ -40,10 +40,10 @@
             <li class="navigation__item mx-3 py-6 md:py-0">
               <RouterLink
                 @click="handleToggle"
-                to="/works"
+                to="/projects"
                 active-class="active"
                 class="navigation__link text-base md:text-lg xl:text-xl font-medium"
-                >Works</RouterLink
+                >Projects</RouterLink
               >
             </li>
           </ul>

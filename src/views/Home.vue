@@ -1,4 +1,5 @@
 <template>
+  <!-- nav hero -->
   <section
     class="hero mx-[16px] mt-8 mb-[100px] md:mt-[100px] md:mx-[50px] lg:mx-[75px] xl:mx-[120px]"
   >
@@ -56,21 +57,42 @@
       </div>
     </div>
   </section>
-  <section class="projects mx-[16px] mt-100px mb-10 md:mb-100px md:mx-[50px]">
-    <h1 class="projects__title text-2xl font-medium text-center mb-8">My latest works</h1>
+
+  <!-- skills -->
+  <Skills />
+
+  <!-- projects -->
+  <section
+    class="projects mx-[16px] mt-100px mb-10 md:mb-100px md:mx-[50px] xl:mx-[120px]"
+  >
+    <h1 class="projects__title text-2xl font-medium text-center mb-8">
+      My latest projects
+    </h1>
     <!-- except tablet -->
     <div
       class="projects__list flex flex-col md:hidden lg:flex lg:flex-row lg:justify-center lg:gap-10"
     >
-      <Card v-for="(card, index) in 3" :key="index" />
+      <Card
+        v-for="(project, index) in projects"
+        :project="project"
+        :key="index"
+      />
     </div>
 
     <!-- carousel for tablet -->
     <div class="hidden md:block lg:hidden">
-      <carousel :settings="settings" :breakpoints="breakpoints" :items-to-show="2">
-        <slide v-for="slide in 3" :key="slide">
-          <Card />
-        </slide>
+      <carousel
+        :settings="settings"
+        :breakpoints="breakpoints"
+        :items-to-show="2"
+      >
+        <!-- <slide v-for="slide in 3" :key="slide"> -->
+        <Card
+          v-for="(project, index) in projects"
+          :project="project"
+          :key="index"
+        />
+        <!-- </slide> -->
         <template #addons>
           <Navigation />
         </template>
@@ -82,18 +104,24 @@
       </h4>
     </routerLink>
   </section>
+
+  <!-- contact -->
   <section class="contact mx-[16px] md:mx-[50px] xl:mx-[120px]">
     <div
       class="contact__box flex flex-col justify-between md:px-8 md:py-12 border border-black rounded-xl px-5 py-5 xl:pl-[122px]"
     >
       <div class="contact__text mb-8 md:w-auto">
-        <h4 class="font-medium text-28xl md:text-4xl md:mb-8">Want to work together?</h4>
+        <h4 class="font-medium text-28xl md:text-4xl md:mb-8">
+          Want to work together?
+        </h4>
         <p class="font-normal text-md md:text-2xl xl:w-700">
           Feel free to reach out for collaborations or just a friendly hello
           hanawazaki002@gmail.com
         </p>
       </div>
-      <div class="contact__socmed flex flex-col md:flex-row text-center md:items-center">
+      <div
+        class="contact__socmed flex flex-col md:flex-row text-center md:items-center"
+      >
         <Socmed />
       </div>
     </div>
@@ -106,11 +134,43 @@ import Socmed from "../components/Socmed.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
 import { ref } from "vue";
+import Skills from "../components/Skills.vue";
 
 const settings = ref({
   itemsToShow: 1,
   snapAlign: "center",
 });
+
+const projects = ref([
+  {
+    id: 1,
+    name: "Luxspace laravel",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A quisquam minus fugit corporis sapiente odit voluptatum voluptatem, harum perferendis cumquimpedit maxime officiis autem natus.",
+    link: "#",
+    github: "",
+    categories: ["laravel", "tailwind"],
+  },
+  {
+    id: 2,
+    name: "Vue Chat app",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A quisquam minus fugit corporis sapiente odit voluptatum voluptatem, harum perferendis cumquimpedit maxime officiis autem natus.",
+    link: "#",
+    github: "",
+    categories: ["vuejs", "firebase"],
+  },
+  {
+    id: 3,
+    name: "Cook Recipes",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A quisquam minus fugit corporis sapiente odit voluptatum voluptatem, harum perferendis cumquimpedit maxime officiis autem natus.",
+    link: "#",
+    github: "",
+    categories: ["Reactjs", "firebase"],
+  },
+]);
+console.log("home");
 
 const breakpoints = ref({
   1024: {
