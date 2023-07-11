@@ -5,7 +5,7 @@
     <h1 class="projects__title text-2xl font-medium text-center mb-8">
       My Exploration Projects
     </h1>
-    <div class="pills flex flex-wrap px-20 mb-8">
+    <div class="pills flex flex-row md:flex-wrap px-0 md:px-20 mb-8 xs:h-10">
       <Pill
         :isSelected="selectedSkill"
         size="lg"
@@ -51,7 +51,7 @@ import Pill from "../components/Pill.vue";
 const pills = ref([
   "HTML5",
   "CSS3",
-  "Javascript ES6",
+  "Javascript",
   "Sass",
   "Tailwind",
   "Bootstrap",

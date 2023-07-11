@@ -16,12 +16,12 @@
       </a>
     </div>
     <img
-      class="card-img-top w-full h-[200px] xxl:h-auto rounded-t-xl"
-      src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1005&q=80"
+      class="card-img-top w-full pt-5 xxl:h-auto rounded-t-xl"
+      src="../assets/laptop.svg"
       alt="project"
     />
 
-    <div class="card-body p-5">
+    <div class="card-body px-5 py-2">
       <a
         href="#"
         class="flex flex-row items-center gap-2 transition-all ease-in duration-150 hover:scale-105"
