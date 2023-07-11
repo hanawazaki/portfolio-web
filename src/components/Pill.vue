@@ -1,6 +1,6 @@
 <template>
   <RouterLink
-    :to="`/projects?${categories}`"
+    :to="`/projects?filter=${categories}`"
     @click="() => handleFilter(categories)"
     class="border border-black rounded-full w-auto mr-2 mb-2 transition-all ease-in duration-200 font-medium md:text-xs xxl:text-base hover:bg-black hover:text-white"
     :class="size === 'lg' ? 'px-4 py-2' : 'px-2'"

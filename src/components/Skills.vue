@@ -13,6 +13,7 @@
             :categories="pill"
             v-for="(pill, index) in pills"
             :key="index"
+            @filter="handleFilter"
           />
         </div>
       </div>

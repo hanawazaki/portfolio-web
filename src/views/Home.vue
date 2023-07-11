@@ -58,9 +58,6 @@
     </div>
   </section>
 
-  <!-- skills -->
-  <Skills />
-
   <!-- projects -->
   <section
     class="projects mx-[16px] mt-100px mb-10 md:mb-100px md:mx-[50px] xl:mx-[120px]"
@@ -105,6 +102,28 @@
     </routerLink>
   </section>
 
+  <!-- skills -->
+  <section class="skills mx-[16px] md:mx-[50px] xl:mx-[120px]">
+    <div
+      class="flex flex-col justify-between md:px-5 md:py-5 border-black rounded-xl px-5 py-5"
+    >
+      <div class="skills__text md:w-auto">
+        <h4 class="font-medium text-28xl md:text-2xl md:mb-8">
+          Skills & Technologies I use
+        </h4>
+        <div class="pills flex flex-wrap">
+          <Pill
+            size="lg"
+            :categories="pill"
+            v-for="(pill, index) in pills"
+            :key="index"
+            @filter="handleFilter"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- contact -->
   <section class="contact mx-[16px] md:mx-[50px] xl:mx-[120px]">
     <div
@@ -133,8 +152,8 @@ import Card from "../components/Card.vue";
 import Socmed from "../components/Socmed.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
-import { ref } from "vue";
-import Skills from "../components/Skills.vue";
+import { ref, onMounted } from "vue";
+import Pill from "../components/Pill.vue";
 
 const settings = ref({
   itemsToShow: 1,
@@ -170,6 +189,25 @@ const projects = ref([
     categories: ["Reactjs", "firebase"],
   },
 ]);
+
+const pills = ref([
+  "HTML5",
+  "CSS3",
+  "Javascript ES6",
+  "Sass",
+  "Tailwind",
+  "Bootstrap",
+  "vueJs",
+  "ReactJs",
+  "Laravel",
+  "InertiaJs",
+  "NuxtJs",
+  "NextJs",
+  "Pinia",
+  "Wordpress",
+  "Webflow",
+]);
+
 console.log("home");
 
 const breakpoints = ref({
@@ -178,6 +216,16 @@ const breakpoints = ref({
     snapAlign: "start",
   },
 });
+
+const filteredProjects = ref([]);
+
+const handleFilter = (skill) => {
+  filteredProjects.value = projects.value.filter((item) =>
+    item.categories
+      .map((category) => category.toLowerCase())
+      .includes(skill.toLowerCase())
+  );
+};
 </script>
 
 <style lang="scss">

@@ -13,12 +13,20 @@
         :key="index"
         @filter="handleFilter"
       />
+
+      <RouterLink
+        to="/projects"
+        class="border border-black px-4 py-2 rounded-full w-auto mr-2 mb-2 transition-all ease-in duration-200 font-medium md:text-xs xxl:text-base hover:bg-black hover:text-white"
+        @click="() => handleFilter(categories)"
+      >
+        All
+      </RouterLink>
     </div>
     <div
-      class="projects__list grid items-center grid-cols-1 gap-12 xl:gap-0 xxl:gap-6 md:grid-cols-2 lg:grid-cols-3"
+      class="projects__list grid items-center justify-between grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
       <Card
-        v-for="(project, index) in projects"
+        v-for="(project, index) in filteredProjects"
         :project="project"
         :key="index"
       />
@@ -29,7 +37,8 @@
 <script setup>
 import Card from "../components/Card.vue";
 import Skills from "../components/Skills.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import Pill from "../components/Pill.vue";
 
 const pills = ref([
@@ -58,7 +67,7 @@ const projects = ref([
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A quisquam minus fugit corporis sapiente odit voluptatum voluptatem, harum perferendis cumquimpedit maxime officiis autem natus.",
     link: "#",
     github: "",
-    categories: ["laravel", "tailwind"],
+    categories: ["Laravel", "Tailwind"],
   },
   {
     id: 2,
@@ -67,7 +76,7 @@ const projects = ref([
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A quisquam minus fugit corporis sapiente odit voluptatum voluptatem, harum perferendis cumquimpedit maxime officiis autem natus.",
     link: "#",
     github: "",
-    categories: ["vuejs", "firebase"],
+    categories: ["vueJs", "firebase"],
   },
   {
     id: 3,
@@ -80,6 +89,35 @@ const projects = ref([
   },
 ]);
 
-console.log("works");
-const handleFilter = (skill) => {};
+const filteredProjects = ref([]);
+
+const router = useRouter();
+onMounted(() => {
+  const currentRoute = router.currentRoute.path;
+  const getFilter = router.currentRoute.value.query.filter;
+  console.log(getFilter);
+  if (getFilter) {
+    handleFilter(getFilter);
+  } else {
+    filteredProjects.value = projects.value;
+  }
+});
+
+const handleFilter = (skill) => {
+  if (skill !== "" && skill !== undefined) {
+    filteredProjects.value = projects.value.filter((item) =>
+      item.categories
+        .map((category) => category.toLowerCase())
+        .includes(skill.toLowerCase())
+    );
+  } else {
+    filteredProjects.value = projects.value;
+  }
+};
 </script>
+
+<style>
+.projects__list:last-child {
+  gap: 0;
+}
+</style>
