@@ -43,6 +43,8 @@
             :categories="pill"
             v-for="(pill, index) in project.categories"
             :key="index"
+            size="sm"
+            isSelected=""
           />
         </div>
       </div>
@@ -59,7 +61,6 @@ import RoundButton from "./RoundButton.vue";
 const pills = ref(["vuejs", "tailwind"]);
 const arrow = ref("&UpperRightArrow;");
 
-console.log("card");
 const props = defineProps({
   project: {
     type: Object,

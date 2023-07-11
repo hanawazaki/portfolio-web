@@ -51,7 +51,7 @@
             >
           </button>
         </div>
-        <div class="right w-full md:w-6/12 flex hidden lg:block">
+        <div class="right w-full md:w-6/12 flex lg:block">
           <img class="img-hero" src="../assets/hero.svg" alt="hero-img" />
         </div>
       </div>
@@ -95,7 +95,7 @@
         </template>
       </carousel>
     </div>
-    <routerLink to="works" class="">
+    <routerLink to="/projects" class="">
       <h4 class="text-center md:mt-5 text-lg font-medium">
         View all projects &UpperRightArrow;
       </h4>
@@ -113,6 +113,7 @@
         </h4>
         <div class="pills flex flex-wrap">
           <Pill
+            isSelected
             size="lg"
             :categories="pill"
             v-for="(pill, index) in pills"
@@ -208,8 +209,6 @@ const pills = ref([
   "Webflow",
 ]);
 
-console.log("home");
-
 const breakpoints = ref({
   1024: {
     itemsToShow: 3,
@@ -235,8 +234,5 @@ const handleFilter = (skill) => {
 
 .contact__box {
   box-shadow: 13px 17px 0px #000000;
-}
-
-.btn-download:hover {
 }
 </style>

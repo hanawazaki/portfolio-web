@@ -4,11 +4,12 @@
   >
     <div class="w-full mx-auto">
       <div class="flex items-center">
-        <div
+        <RouterLink
+          to="/"
           class="navigation__logo flex w-32 text-base leading-4 font-medium md:text-[28px] md:leading-[34px] lg:text-[20px] lg:leading-[26px]"
         >
           Hairul A Nawazaki
-        </div>
+        </RouterLink>
         <div class="w-full"></div>
         <div class="navigation__nav w-auto">
           <ul

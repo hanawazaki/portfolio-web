@@ -7,6 +7,7 @@
     </h1>
     <div class="pills flex flex-wrap px-20 mb-8">
       <Pill
+        :isSelected="selectedSkill"
         size="lg"
         :categories="pill"
         v-for="(pill, index) in pills"
@@ -23,6 +24,7 @@
       </RouterLink>
     </div>
     <div
+      v-if="filteredProjects.length > 0"
       class="projects__list grid items-center justify-between grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
       <Card
@@ -30,6 +32,11 @@
         :project="project"
         :key="index"
       />
+    </div>
+    <div v-else>
+      <h1 class="flex justify-center text-base font-medium italic">
+        Tidak ada data
+      </h1>
     </div>
   </section>
 </template>
@@ -90,12 +97,16 @@ const projects = ref([
 ]);
 
 const filteredProjects = ref([]);
+const selectedSkill = ref();
 
 const router = useRouter();
 onMounted(() => {
   const currentRoute = router.currentRoute.path;
   const getFilter = router.currentRoute.value.query.filter;
-  console.log(getFilter);
+
+  selectedSkill.value = getFilter;
+  console.log("getFilter", getFilter);
+  console.log("selectedSkill", selectedSkill.value);
   if (getFilter) {
     handleFilter(getFilter);
   } else {
@@ -104,6 +115,8 @@ onMounted(() => {
 });
 
 const handleFilter = (skill) => {
+  selectedSkill.value = skill;
+
   if (skill !== "" && skill !== undefined) {
     filteredProjects.value = projects.value.filter((item) =>
       item.categories
