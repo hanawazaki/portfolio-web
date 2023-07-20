@@ -3,7 +3,7 @@
     class="projects mx-[16px] mt-8 mb-10 md:mb-100px md:mt-[100px] md:mx-[50px] lg:mx-[75px] xl:mx-[120px]"
   >
     <h1 class="projects__title text-2xl font-medium text-center mb-8">
-      My Exploration Projects
+      My Projects
     </h1>
     <div class="pills flex flex-row md:flex-wrap px-0 md:px-20 mb-8 xs:h-10">
       <Pill
@@ -49,8 +49,6 @@ import { useRouter } from "vue-router";
 import Pill from "../components/Pill.vue";
 
 const pills = ref([
-  "HTML5",
-  "CSS3",
   "Javascript",
   "Sass",
   "Tailwind",

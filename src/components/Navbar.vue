@@ -6,9 +6,10 @@
       <div class="flex items-center">
         <RouterLink
           to="/"
-          class="navigation__logo flex w-32 text-base leading-4 font-medium md:text-[28px] md:leading-[34px] lg:text-[20px] lg:leading-[26px]"
+          class="flex items-center navigation__logo flex w-32 text-base leading-4 font-medium md:text-[28px] md:leading-[34px] lg:text-[20px] lg:leading-[26px]"
         >
-          Hairul A Nawazaki
+          <img src="../assets/logo-cat.svg" alt="" />
+          <h4>Hanawazaki</h4>
         </RouterLink>
         <div class="w-full"></div>
         <div class="navigation__nav w-auto">
