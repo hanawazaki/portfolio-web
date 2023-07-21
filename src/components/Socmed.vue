@@ -23,25 +23,25 @@ const icons = ref([
   {
     id: 1,
     name: "gmail",
-    image: "src/assets/gmail.svg",
+    image: "/src/assets/gmail.svg",
     link: "mailto:hanawazaki002@gmail.com",
   },
   {
     id: 2,
     name: "github",
-    image: "src/assets/github.svg",
+    image: "/src/assets/github.svg",
     link: "https://github.com/hanawazaki",
   },
   {
     id: 3,
     name: "linkedin",
-    image: "src/assets/Linkedin.svg",
+    image: "/src/assets/Linkedin.svg",
     link: "https://www.linkedin.com/in/hanawazaki/",
   },
   {
     id: 4,
     name: "telegram",
-    image: "src/assets/telegram.svg",
+    image: "/src/assets/telegram.svg",
     link: "https://t.me/hanawazaki",
   },
 ]);
