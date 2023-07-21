@@ -49,7 +49,7 @@
     </h1>
     <!-- except tablet -->
     <div
-      class="projects__list flex flex-col md:hidden lg:flex lg:flex-row lg:justify-center lg:gap-10"
+      class="projects__list flex flex-col md:flex-row md:gap-5 lg:justify-center lg:gap-10"
     >
       <Card
         v-for="(project, index) in projects"
@@ -59,24 +59,16 @@
     </div>
 
     <!-- carousel for tablet -->
-    <div class="hidden md:block lg:hidden">
-      <carousel
-        :settings="settings"
-        :breakpoints="breakpoints"
-        :items-to-show="2"
-      >
-        <!-- <slide v-for="slide in 3" :key="slide"> -->
-        <Card
-          v-for="(project, index) in projects"
-          :project="project"
-          :key="index"
-        />
-        <!-- </slide> -->
+    <!-- <div class="hidden md:block lg:hidden">
+      <carousel :settings="settings" :breakpoints="breakpoints">
+        <slide v-for="(project, index) in projects" :key="index">
+          <Card :project="project" />
+        </slide>
         <template #addons>
           <Navigation />
         </template>
       </carousel>
-    </div>
+    </div> -->
     <routerLink to="/projects" class="">
       <h4 class="text-center md:mt-5 text-lg font-medium">
         View all projects &UpperRightArrow;
@@ -156,6 +148,10 @@ const scrollMe = () => {
 };
 
 const breakpoints = ref({
+  768: {
+    itemsToShow: 2.5,
+    snapAlign: "start",
+  },
   1024: {
     itemsToShow: 3,
     snapAlign: "start",

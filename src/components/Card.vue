@@ -26,7 +26,7 @@
         href="#"
         class="flex flex-row items-center gap-2 transition-all ease-in duration-150 hover:scale-105"
       >
-        <h4 class="card-title text-xl font-medium my-3 xxl:text-2xl">
+        <h4 class="card-title text-base font-medium my-3 xxl:text-2xl">
           {{ project.name }}
         </h4>
         <i
@@ -34,7 +34,7 @@
           class="text-base md:text-[1.25rem] md:leading-5 text-center"
         ></i>
       </a>
-      <p class="card-text text-sm xxl:text-lg">
+      <p class="card-text text-xs xxl:text-lg">
         {{ project.description }}
       </p>
       <div class="card-categories flex justify-between mt-8 items-center">
