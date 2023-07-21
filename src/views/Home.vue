@@ -25,6 +25,7 @@
             </h5>
           </div>
           <button
+            @click="scrollMe"
             class="btn-download p-[16px] rounded-[12px] text-[20px] border border-black md:p-[12px] transition-all ease-in duration-200 hover:bg-black hover:text-white"
           >
             <span class="flex flex-row font-normal text-lg md:text-sm">
@@ -83,31 +84,8 @@
     </routerLink>
   </section>
 
-  <!-- skills -->
-  <!-- <section class="skills mx-[16px] md:mx-[50px] xl:mx-[120px]">
-    <div
-      class="flex flex-col justify-between md:px-5 md:py-5 border-black rounded-xl px-5 py-5"
-    >
-      <div class="skills__text md:w-auto">
-        <h4 class="font-medium text-28xl md:text-2xl md:mb-8">
-          Skills & Technologies I use
-        </h4>
-        <div class="pills flex flex-wrap">
-          <Pill
-            isSelected
-            size="lg"
-            :categories="pill"
-            v-for="(pill, index) in pills"
-            :key="index"
-            @filter="handleFilter"
-          />
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <!-- contact -->
-  <section class="contact mx-[16px] md:mx-[50px] xl:mx-[120px]">
+  <section id="contact" class="contact mx-[16px] md:mx-[50px] xl:mx-[120px]">
     <div
       class="contact__box flex flex-col justify-between md:px-8 md:py-12 border border-black rounded-xl px-5 py-5 xl:pl-[122px]"
     >
@@ -172,23 +150,10 @@ const projects = ref([
   },
 ]);
 
-const pills = ref([
-  "HTML5",
-  "CSS3",
-  "Javascript ES6",
-  "Sass",
-  "Tailwind",
-  "Bootstrap",
-  "vueJs",
-  "ReactJs",
-  "Laravel",
-  "InertiaJs",
-  "NuxtJs",
-  "NextJs",
-  "Pinia",
-  "Wordpress",
-  "Webflow",
-]);
+const scrollMe = () => {
+  const contactElement = document.getElementById("contact");
+  contactElement.scrollIntoView({ behavior: "smooth" });
+};
 
 const breakpoints = ref({
   1024: {
@@ -196,16 +161,6 @@ const breakpoints = ref({
     snapAlign: "start",
   },
 });
-
-const filteredProjects = ref([]);
-
-const handleFilter = (skill) => {
-  filteredProjects.value = projects.value.filter((item) =>
-    item.categories
-      .map((category) => category.toLowerCase())
-      .includes(skill.toLowerCase())
-  );
-};
 </script>
 
 <style lang="scss">

@@ -20,11 +20,7 @@ const routes = [
     name: 'projects',
     component: Projects
   },
-  {
-    path: '/contact',
-    name: 'contact',
-    component: Contact
-  },
+
 ]
 
 const router = createRouter({

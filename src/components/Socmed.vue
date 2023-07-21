@@ -5,7 +5,7 @@
       v-for="icon in icons"
       :key="icon.id"
       :href="icon.link"
-      class="w-8 border p-1 mr-3 border-black rounded-full mb-2 transition-all duration-300 ease-in-out hover:scale-105"
+      class="w-8 p-1 mr-3 mb-2 transition-all duration-300 ease-in-out hover:scale-105"
     >
       <img
         :src="icon.image"
