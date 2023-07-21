@@ -8,7 +8,7 @@
       class="w-8 p-1 mr-3 mb-2 transition-all duration-300 ease-in-out hover:scale-105"
     >
       <img
-        :src="icon.image"
+        :src="`/assets/${icon.image}`"
         :alt="icon.name"
         class="w-[1.5rem] m-auto h-auto"
       />
@@ -23,25 +23,25 @@ const icons = ref([
   {
     id: 1,
     name: "gmail",
-    image: "/src/assets/gmail.svg",
+    image: "gmail.svg",
     link: "mailto:hanawazaki002@gmail.com",
   },
   {
     id: 2,
     name: "github",
-    image: "/src/assets/github.svg",
+    image: "github.svg",
     link: "https://github.com/hanawazaki",
   },
   {
     id: 3,
     name: "linkedin",
-    image: "/src/assets/Linkedin.svg",
+    image: "Linkedin.svg",
     link: "https://www.linkedin.com/in/hanawazaki/",
   },
   {
     id: 4,
     name: "telegram",
-    image: "/src/assets/telegram.svg",
+    image: "telegram.svg",
     link: "https://t.me/hanawazaki",
   },
 ]);
